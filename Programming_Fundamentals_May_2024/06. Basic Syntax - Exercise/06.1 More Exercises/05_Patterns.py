@@ -84,5 +84,5 @@ elif execute == 5:
     pyramid()
 elif execute == 6:
     left_angle()
-elif execute == 6:
+elif execute == 7:
     heart_pattern()
