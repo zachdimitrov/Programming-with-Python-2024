@@ -9,9 +9,10 @@ execute = int(input('Select a function: \n'
 def is_prime():
     num = int(input('Input a number: '))
     is_prm = True
-    for i in range(2, num):
+    for i in range(2, math.ceil(num * 0.5)):
         if num % i == 0:
             is_prm = False
+            print(i)
             break
     if is_prm:
         print(f'{num} is a prime number!')
