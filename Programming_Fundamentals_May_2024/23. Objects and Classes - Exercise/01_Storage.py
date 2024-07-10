@@ -1,7 +1,8 @@
 class Storage:
+    storage = []
+
     def __init__(self, capacity):
         self.capacity = capacity
-        self.storage = []
 
     def add_product(self, product: str):
         if len(self.storage) < self.capacity:
