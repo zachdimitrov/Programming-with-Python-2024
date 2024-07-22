@@ -19,7 +19,7 @@ while True:
 user_rating = {}
 for contest, users in contests.items():
     print(f"{contest}: {len(users)} participants")
-    sorted_users = dict(reversed(sorted(users.items(), key=lambda x: x[1])))
+    sorted_users = dict(sorted(users.items(), key=lambda x: x[1], reverse=True))
     id = 1
     for user, points in sorted_users.items():
         if user not in user_rating:
@@ -33,7 +33,7 @@ for contest, users in contests.items():
 
 print("Individual standings:")
 num = 1
-sorted_user_rating = dict(reversed(sorted(user_rating.items(), key=lambda x: x[1])))
+sorted_user_rating = dict(sorted(user_rating.items(), key=lambda x: x[1], reverse=True))
 for user, points in sorted_user_rating.items():
     print(f"{num}. {user} -> {points}")
     num += 1
