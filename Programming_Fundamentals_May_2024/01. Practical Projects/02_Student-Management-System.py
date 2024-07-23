@@ -1,6 +1,6 @@
 # Dictionary to store student records
 students = {}
-
+id_number = 1
 
 def add_student(name, age, grade, subjects):
     """
@@ -12,7 +12,9 @@ def add_student(name, age, grade, subjects):
     - subjects (list of str): The subjects the student is enrolled in.
     """
     # Code to add a new student record
-
+    global id_number
+    students[id_number] = [name, age, grade, subjects]
+    id_number += 1
 
 def update_student(name):
     """
@@ -23,7 +25,18 @@ def update_student(name):
     # Check if the student exists
     # Prompt the user to update fields and keep current values if fields are empty
     # Code to update the student's record
+    for id in students:
+        if name in students[id]:
+            name = input("Enter student's name: ")
+            age = int(input("Enter student's age: "))
+            grade = float(input("Enter student's grade: "))
+            subjects = input("Enter student's subjects (comma-separated): ").split(',')
+            students[id][0] = name
+            students[id][1] = age
+            students[id][2] = grade
+            students[id][3] = subjects
 
+    print(f"Student {students[id][0]} updated!")
 
 def delete_student(name):
     """
@@ -33,6 +46,11 @@ def delete_student(name):
     """
     # Check if the student exists
     # Code to delete the student's record
+    for id in students.keys():
+        if name in students[id]:
+            del students[id]
+            break
+    print(f"Student {name} deleted!")
 
 
 def search_student(name):
@@ -43,7 +61,9 @@ def search_student(name):
     """
     # Check if the student exists
     # Code to return the student's record
-
+    for id in students.keys():
+        if name in students[id]:
+            print(students[id])
 
 def list_all_students():
     """
@@ -51,7 +71,8 @@ def list_all_students():
     """
     # Check if there are any student records
     # Code to list all students
-
+    for s in students.keys():
+        print(students[s])
 
 def main():
     """
