@@ -45,10 +45,10 @@ if len(parents) % 2 != 0:
     balanced = False
 else:
     while len(parents):
-        print(parents)
+        #print(parents)
         first_el = parents.popleft()
         next_el = parents.popleft()
-        print("elements: ", first_el, next_el)
+        #print("elements: ", first_el, next_el)
         if first_el == opens[0]:
             if next_el == closed[0]:
                 counter = 0
