@@ -13,4 +13,18 @@ while packages and couriers:
         if capacity > 0:
             couriers.append(capacity)
         total_delivered += packages.pop()
+    else:
+        packages[-1] -= couriers.popleft()
+        total_delivered += current_courier
+
+print(f"Total weight: {total_delivered} kg")
+if not packages and not couriers:
+    print(f"Congratulations, all packages were delivered successfully by the couriers today.")
+
+if packages and not couriers:
+    print(f"Unfortunately, there are no more available couriers to"
+          f" deliver the following packages: {', '.join([str(el) for el in packages])}")
+
+if couriers and not packages:
+    print(f"Couriers are still on duty: {', '.join([str(el) for el in couriers])} but there are no more packages to deliver.")
 
