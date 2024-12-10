@@ -13,4 +13,4 @@ while packages and couriers:
         if capacity > 0:
             couriers.append(capacity)
         total_delivered += packages.pop()
-        
+
