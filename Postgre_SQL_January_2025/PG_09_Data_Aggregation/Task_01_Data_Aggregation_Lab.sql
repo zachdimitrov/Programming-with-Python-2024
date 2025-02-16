@@ -4,7 +4,7 @@ SELECT
     count(*)
 FROM persons
 GROUP BY country, department
-ORGER BY country
+ORDER BY country
 
 -- 01. Departmetns
 SELECT
@@ -78,3 +78,29 @@ SELECT
 		ELSE 'Other'
 	END AS department_name
 FROM employees
+
+-- example aggregation case
+SELECT
+    department,
+    sum(salary),
+    sum(
+        CASE
+            WHEN department = 'Marketing' THEN salary + 1.2
+            WHEN department = 'Training' THEN salary + 1.8
+            ELSE salary
+        END
+    ) AS updated_salary
+FROM employees
+
+-- case in where
+
+SELECT
+    *
+FROM employees
+WHERE
+    CASE
+        WHEN salary > 3000 THEN TRUE
+        WHEN department = 'Training' THEN TRUE
+        ELSE FALSE
+    END
+

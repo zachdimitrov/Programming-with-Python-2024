@@ -1,0 +1,13 @@
+from django.db import models
+
+# Create your models here.
+class Employee(models.Model):
+    name = models.CharField(max_length=30)
+    email_address = models.EmailField()
+    photo = models.URLField()
+    birth_date = models.DateField()
+    works_full_time = models.BooleanField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name}, {self.email_address}, {self.birth_date}'
